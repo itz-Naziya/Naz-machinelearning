@@ -59,6 +59,3 @@ df_penguins[:1]
 
 
 
-
-
-
