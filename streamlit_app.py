@@ -40,7 +40,16 @@ with st.sidebar:
   input_df= pd.DataFrame(data , index = [0])
   input_penguins = pd.concat([input_df , X ],axis=0)
 
-  
+#encode X
+encode=['island', 'sex']
+df_penguins=pd.get_dummies(input_penguins , prefix=encode)
+input_row = df_penguins[:1]
+
+#encode Y
+target_mapper = { 'Adelie' :0, 
+                 'Chinstrap': 1 , 
+                 ' Gentoo' :2 }
+
 with st.expander('Input Features'):
   st.write('**Input penguin**')
   input_df
@@ -49,10 +58,7 @@ with st.expander('Input Features'):
   st.write('**encoded input penguin**')
   input_row
 
-#encode
-encode=['island', 'sex']
-df_penguins=pd.get_dummies(input_penguins , prefix=encode)
-df_penguins[:1]
+
 
 
 
