@@ -24,25 +24,25 @@ with st.expander('Data Visualization'):
 
 #data preparations
 with st.sidebar:
-  st.header('Input Feautures') 
+  st.header('Input Features') 
   #"bill_depth_mm","flipper_length_mm","body_mass_g","sex"
   island=st.selectbox('Island',('Biscoe','Torgersen','Dream')) 
   bill_length_mm=st.slider('Bill length (mm)',32.1,59.6,43.9)
   bill_depth_mm=st.slider('Bill Depth (mm)' , 13.1,21.5,17.2)
-  flipper_length_mm=st.slider('Flipper Length (mm) ', 172.0 , 231.0, 201.0)
+  flipper_length_mm=st.slider('Flipper Length (mm) ', 172.0, 231.0, 201.0)
   body_mass_g=st.slider('Body mass (g)' , 2700.0 , 6300.0 , 4207.0 )
   gender=st.selectbox('Gender',('male','female'))
 
   #create a dataframe for input features
   data={'island' : island , 'bill_length_mm' : bill_length_mm, ' bill_depth_mm ' : bill_depth_mm , 
         ' flipper_length_mm' : flipper_length_mm , ' body_mass_g ' : body_mass_g ,
-        ' sex' : gender }
+        ' sex': gender }
   input_df= pd.DataFrame(data , index = [0])
   input_penguins = pd.concat([input_df , X ],axis=0)
 
 #encode X
-encode=['island', 'sex']
-df_penguins=pd.get_dummies(input_penguins , prefix=encode)
+encode = ['island', 'sex']
+df_penguins=pd.get_dummies(input_penguins,prefix=encode)
 input_row = df_penguins[:1]
 
 #encode Y
