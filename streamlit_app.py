@@ -36,7 +36,7 @@ with st.sidebar:
   #create a dataframe for input features
   data={'island' : island , 'bill_length_mm' : bill_length_mm, ' bill_depth_mm ' : bill_depth_mm , 
         ' flipper_length_mm' : flipper_length_mm , ' body_mass_g ' : body_mass_g ,
-        ' gender ' : gender }
+        ' sex' : gender }
   input_df= pd.DataFrame(data , index = [0])
   input_penguins = pd.concat([input_df , X ],axis=0)
   
@@ -45,7 +45,9 @@ with st.expander('Input Features'):
   input_df
   st.write('**Combined penguin Data**')
   input_penguins
-
+#encode
+encode=['island', 'sex' ]
+df_penguins= pd.get_dummies(input=penguins , prefix=encode)
 
 
 
