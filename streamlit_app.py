@@ -49,7 +49,10 @@ with st.expander('Input Features'):
   st.write('**encoded input penguin**')
   input_row
 
-
+#encode
+encode=['island', 'gender']
+df_penguins=pd.get_dummies(input_penguins , prefix=encode)
+df_penguins[:1]
 
 
 
